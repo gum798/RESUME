@@ -205,7 +205,7 @@ def convert_md_to_html(input_file, output_file):
 
 if __name__ == "__main__":
     input_md = "RESUME.md"
-    output_html = "RESUME.html"
+    output_html = "index.html"
     
     if os.path.exists(input_md):
         convert_md_to_html(input_md, output_html)
