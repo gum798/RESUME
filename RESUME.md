@@ -8,6 +8,7 @@
 - **Birth**: 1979년생 (46세)
 - **Desired Salary**: 1억 3천만원
 - **GitHub**: [github.com/gum798](https://github.com/gum798)
+- **Portfolio**: [Web Portfolio](portfolio-ko.html)
 
 ---
 
@@ -139,6 +140,28 @@
 - **주식회사 유라코퍼레이션** (2004.03 ~ 2006.06)
     - IT개발팀 사원
     - 자동차회로검사 S/W 개발: 자동차회로 이상 판단 검사 프로그램 (MFC)
+
+---
+
+## 💻 Vibe Coding
+
+### **A2A MCP Real Estate (AI 부동산 추천 에이전트)**
+*(2024.12 ~ 현재) | [GitHub Repository](https://github.com/gum798/A2A-MCP-RealEstate)*
+- **개요**: FastMCP(Model Context Protocol) 기반의 부동산 추천 AI Agent (Anthropic Claude/Gemini 연동)
+- **주요 기능**: 국토교통부 실거래가 API 및 네이버 지도 데이터를 실시간 조회하여 투자 가치와 삶의 질을 분석해 맞춤형 부동산 추천
+- **Tech Stack**: Python, FastMCP, Anthropic API, Google Gemini API, Public Data API
+
+### **AI Trader (지능형 주식 거래 시스템)**
+*(2023.01 ~ 2024.01) | [GitHub Repository](https://github.com/gum798/AI-Trader)*
+- **개요**: 데이터 수집부터 매매 전략 실행까지 자동화된 주식 트레이딩 시스템
+- **주요 기능**: Yahoo Finance/DART API 기반 실시간 데이터 파이프라인 구축, 3단계(관심-후보-매매) 자동 관리 시스템
+- **Tech Stack**: Python, Pandas, Plotly (Dash), SQLite, Slack API
+
+### **Outlook2GCal (일정 동기화 도구)**
+*(2024.01) | [GitHub Repository](https://github.com/gum798/outlook2gcal)*
+- **개요**: 사내 Outlook 일정과 개인 Google Calendar 간의 실시간 단방향 동기화 도구
+- **문제 해결**: 보안상 모바일 확인이 어려운 사내 일정을 개인 캘린더로 미러링하여 일정 관리 효율성 증대
+- **Tech Stack**: Python, Google Calendar API, MS Outlook COM Interface
 
 ---
 
