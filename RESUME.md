@@ -147,21 +147,32 @@
 
 ### **A2A MCP Real Estate (AI 부동산 추천 에이전트)**
 *(2024.12 ~ 현재) | [GitHub Repository](https://github.com/gum798/A2A-MCP-RealEstate)*
-- **개요**: FastMCP(Model Context Protocol) 기반의 부동산 추천 AI Agent (Anthropic Claude/Gemini 연동)
-- **주요 기능**: 국토교통부 실거래가 API 및 네이버 지도 데이터를 실시간 조회하여 투자 가치와 삶의 질을 분석해 맞춤형 부동산 추천
-- **Tech Stack**: Python, FastMCP, Anthropic API, Google Gemini API, Public Data API
+- FastMCP(Model Context Protocol) 기반의 부동산 추천 AI Agent (Anthropic Claude/Gemini 연동)
+- 국토교통부 실거래가 API 및 네이버 지도 기반 투자 가치/삶의 질 분석 알고리즘 구현
 
 ### **AI Trader (지능형 주식 거래 시스템)**
 *(2023.01 ~ 2024.01) | [GitHub Repository](https://github.com/gum798/AI-Trader)*
-- **개요**: 데이터 수집부터 매매 전략 실행까지 자동화된 주식 트레이딩 시스템
-- **주요 기능**: Yahoo Finance/DART API 기반 실시간 데이터 파이프라인 구축, 3단계(관심-후보-매매) 자동 관리 시스템
-- **Tech Stack**: Python, Pandas, Plotly (Dash), SQLite, Slack API
+- 데이터 수집(Yahoo Fin/DART)부터 매매(Quant)까지 전 과정 자동화된 트레이딩 시스템
+- Plotly Dash 기반 실시간 대시보드 및 3단계 종목 관리 프로세스 구축
 
 ### **Outlook2GCal (일정 동기화 도구)**
 *(2024.01) | [GitHub Repository](https://github.com/gum798/outlook2gcal)*
-- **개요**: 사내 Outlook 일정과 개인 Google Calendar 간의 실시간 단방향 동기화 도구
-- **문제 해결**: 보안상 모바일 확인이 어려운 사내 일정을 개인 캘린더로 미러링하여 일정 관리 효율성 증대
-- **Tech Stack**: Python, Google Calendar API, MS Outlook COM Interface
+- 사내 Outlook 일정과 개인 Google Calendar 간의 실시간 단방향 동기화 (Win32com, Google API)
+- 민감 정보 필터링 및 카테고리별 색상 매핑 기능
+
+### **Toy Projects & Studies**
+- **[CoinCompass](https://github.com/gum798/CoinCompass)**: 암호화폐 시장 추세 분석 및 방향성 예측 도구
+- **[forecasting_stock](https://github.com/gum798/forecasting_stock)**: 시계열 데이터를 활용한 주가 예측 딥러닝 모델 연구
+- **[coupon_recommand](https://github.com/gum798/coupon_recommand)**: 사용자 행동 기반 개인화 쿠폰 추천 시스템 프로토타입
+- **[web-tools-collection](https://github.com/gum798/web-tools-collection)**: 개발 생산성 향상을 위한 웹 유틸리티 모음
+- **[webautomation](https://github.com/gum798/webautomation)**: Selenium/Puppeteer를 활용한 웹 크롤링 및 자동화 스크립트
+- **[teachable_machine_pose](https://github.com/gum798/teachable_machine_pose)**: Teachable Machine을 활용한 웹 기반 포즈 추정 및 운동 자세 교정 AI
+- **[TensorTherapy](https://github.com/gum798/TensorTherapy)**: TensorFlow 활용 딥러닝 모델 구현 및 실습 리포지토리
+- **[MLOps-Basics](https://github.com/gum798/MLOps-Basics)**: Docker, Kubernetes, CI/CD 등 MLOps 기초 인프라 구축 실습
+- **[speech_recognition](https://github.com/gum798/speech_recognition)**: 음성 인식(STT) 라이브러리 활용 및 음성 데이터 전처리 연구
+- **[mecab](https://github.com/gum798/mecab)**: 한국어 형태소 분석기 MeCab 활용 및 사용자 사전 구축 실습
+- **[fastai](https://github.com/gum798/fastai)**: FastAI 라이브러리를 활용한 딥러닝 모델 학습 및 튜닝 실습
+- **[jocoding-study](https://github.com/gum798/jocoding-study)**: 조코딩 강의 기반 웹/앱 개발 실습 아카이브
 
 ---
 
