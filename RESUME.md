@@ -9,7 +9,7 @@
 - **Birth**: 1979.04.16 (46세)
 - **Desired Salary**: 1억 3천만원
 - **GitHub**: [github.com/gum798](https://github.com/gum798)
-- **Portfolio**: [gum798.github.io](https://gum798.github.io)
+<!-- - **Portfolio**: [gum798.github.io](https://gum798.github.io) -->
 
 ---
 
