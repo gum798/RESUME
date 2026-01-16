@@ -25,21 +25,26 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         .animate-fade-in-up {
             animation: fade-in-up 0.6s ease-out;
         }
+
         .perspective-1000 {
             perspective: 1000px;
         }
+
         .gradient-border {
             position: relative;
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
+
         .gradient-border::before {
             content: '';
             position: absolute;
@@ -52,13 +57,16 @@
             -webkit-mask-composite: xor;
             mask-composite: exclude;
         }
+
         .tech-tag {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
             border: 1px solid rgba(59, 130, 246, 0.3);
         }
+
         .project-card:hover {
             transform: translateY(-4px);
         }
+
         .metric-card {
             background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
         }
@@ -68,11 +76,15 @@
 <body class="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30 selection:text-blue-100">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 border-b bg-transparent border-transparent py-6">
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 transition-all duration-300 border-b bg-transparent border-transparent py-6">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2 font-bold text-xl tracking-tighter text-white cursor-pointer" onclick="scrollToId('hero')">
-                <svg class="w-6 h-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            <div class="flex items-center gap-2 font-bold text-xl tracking-tighter text-white cursor-pointer"
+                onclick="scrollToId('hero')">
+                <svg class="w-6 h-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
                 <span>SEO.AI<span class="text-blue-500">_ARCHITECT</span></span>
             </div>
@@ -84,9 +96,11 @@
                 <a href="index.html" class="hover:text-blue-400 transition-colors">이력서</a>
                 <a href="portfolio.html" class="hover:text-blue-400 transition-colors">EN</a>
             </div>
-            <a href="https://github.com/gum798" target="_blank" rel="noreferrer" class="hidden md:flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-full text-xs font-bold transition-all border border-slate-700">
+            <a href="https://github.com/gum798" target="_blank" rel="noreferrer"
+                class="hidden md:flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-full text-xs font-bold transition-all border border-slate-700">
                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                 </svg>
                 <span>gum798</span>
             </a>
@@ -94,39 +108,54 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="py-20 px-6 md:px-12 lg:px-24 min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+    <section id="hero"
+        class="py-20 px-6 md:px-12 lg:px-24 min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
         <!-- Background Effects -->
-        <div class="absolute inset-0 opacity-20" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
-        <div class="absolute inset-0" style="background-image: linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px); background-size: 24px 24px;"></div>
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-purple-600/20 rounded-full blur-[80px] pointer-events-none"></div>
+        <div class="absolute inset-0 opacity-20"
+            style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+        <div class="absolute inset-0"
+            style="background-image: linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px); background-size: 24px 24px;">
+        </div>
+        <div
+            class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-purple-600/20 rounded-full blur-[80px] pointer-events-none">
+        </div>
 
         <div class="container mx-auto relative z-10 text-center max-w-4xl">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-mono mb-6 animate-fade-in-up">
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-mono mb-6 animate-fade-in-up">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
                 <span>AI & Data Science Professional</span>
             </div>
 
             <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-tight">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400">AI 솔루션</span>으로<br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400">AI
+                    솔루션</span>으로<br />
                 비즈니스 가치를 창출합니다
             </h1>
 
             <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                21년의 개발 경험과 6년의 AI/ML 전문성을 바탕으로<br class="hidden md:block"/>
+                21년의 개발 경험과 6년의 AI/ML 전문성을 바탕으로<br class="hidden md:block" />
                 엔터프라이즈급 AI 시스템을 설계하고 구축합니다.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button onclick="scrollToId('projects')" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-900/30 w-full sm:w-auto justify-center group">
+                <button onclick="scrollToId('projects')"
+                    class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-900/30 w-full sm:w-auto justify-center group">
                     프로젝트 보기
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
-                <button onclick="scrollToId('contact')" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-bold border border-slate-700 transition-all w-full sm:w-auto justify-center">
+                <button onclick="scrollToId('contact')"
+                    class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-bold border border-slate-700 transition-all w-full sm:w-auto justify-center">
                     연락하기
                 </button>
             </div>
@@ -134,19 +163,27 @@
             <!-- Stats -->
             <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="gradient-border rounded-xl p-6">
-                    <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-1">21+</div>
+                    <div
+                        class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-1">
+                        21+</div>
                     <div class="text-sm text-slate-500">년 개발 경력</div>
                 </div>
                 <div class="gradient-border rounded-xl p-6">
-                    <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-1">6+</div>
+                    <div
+                        class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-1">
+                        6+</div>
                     <div class="text-sm text-slate-500">년 AI/ML 전문</div>
                 </div>
                 <div class="gradient-border rounded-xl p-6">
-                    <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 mb-1">9+</div>
+                    <div
+                        class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 mb-1">
+                        9+</div>
                     <div class="text-sm text-slate-500">AI 서비스 론칭</div>
                 </div>
                 <div class="gradient-border rounded-xl p-6">
-                    <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400 mb-1">90%</div>
+                    <div
+                        class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400 mb-1">
+                        90%</div>
                     <div class="text-sm text-slate-500">업무 자동화율</div>
                 </div>
             </div>
@@ -159,28 +196,36 @@
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/3">
                     <div class="gradient-border rounded-2xl p-8">
-                        <div class="w-24 h-24 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-full mb-6 flex items-center justify-center text-3xl font-bold text-white shadow-lg mx-auto">
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-full mb-6 flex items-center justify-center text-3xl font-bold text-white shadow-lg mx-auto">
                             서정
                         </div>
                         <h3 class="text-2xl font-bold text-white text-center">서정화</h3>
                         <p class="text-blue-400 text-center mb-4">AI Architect & Team Lead</p>
                         <div class="space-y-3 text-sm text-slate-400">
                             <div class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                <svg class="w-4 h-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 gum798@gmail.com
                             </div>
                             <div class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                <svg class="w-4 h-4 text-purple-500" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
                                 github.com/gum798
                             </div>
                             <div class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <svg class="w-4 h-4 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                                 인천광역시, 대한민국
                             </div>
@@ -232,9 +277,12 @@
     <section id="projects" class="py-20 px-6 md:px-12 lg:px-24">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-mono mb-4">
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-mono mb-4">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                     AI & Data Science Projects
                 </div>
@@ -242,50 +290,144 @@
                 <p class="text-slate-400 max-w-2xl mx-auto">실제 비즈니스 문제를 해결한 AI 프로젝트들입니다</p>
             </div>
 
-            <!-- Project 1: Big Data Platform -->
+            <!-- Project 0: Kona Chain AI OS -->
             <div class="project-card gradient-border rounded-2xl p-8 mb-8 transition-all duration-300">
                 <div class="flex flex-col lg:flex-row gap-8">
                     <div class="lg:w-2/3">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Data Engineering</span>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI 팀장</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">AI
+                                Agent Platform</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">Lead
+                                AI Architect & PM</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">지역화폐 빅데이터 플랫폼 및 데이터 파이프라인 구축</h3>
+                        <h3 class="text-2xl font-bold text-white mb-4">차세대 경영/회계 자율 대응 AI System (Kona AI OS)</h3>
 
                         <div class="mb-6">
                             <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
-                            <p class="text-slate-300">전국 각 지자체별로 파편화되어 적재되던 지역화폐 결제 및 운영 데이터를 통합 분석할 수 있는 기반이 부재하여, 데이터 기반의 정책 수립에 어려움이 있었습니다.</p>
+                            <p class="text-slate-300">5개 이종 ERP/금융 시스템의 데이터가 분산되어 경영진의 의사결정에 필요한 통합 정보를 실시간으로 제공하기
+                                어려웠으며, 잠재적 리스크(특수관계자 부정 거래 등)를 사전에 탐지하는 데 한계가 있었습니다.</p>
                         </div>
 
                         <div class="mb-6">
-                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions
+                            </h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-blue-400 mt-1">▹</span>
-                                    <span><strong class="text-white">Enterprise Data Lakehouse:</strong> 다양한 지자체의 이기종 DB(Oracle, MySQL)로부터 데이터를 수집하여 통합 저장하는 Data Lake 설계</span>
+                                    <span><strong class="text-white">System 2 (Reasoning):</strong> 복잡한 회계/경영 이슈를 스스로
+                                        추론하고 계획(Planning)하여 해결하는 Recursive Agent 설계</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-blue-400 mt-1">▹</span>
-                                    <span><strong class="text-white">ETL 파이프라인 자동화:</strong> Apache Spark 기반 대용량 배치 처리 시스템 - 일일 수백만 건 트랜잭션 처리</span>
+                                    <span><strong class="text-white">GraphRAG (Semantic Layer):</strong> Neo4j를 활용해
+                                        거래처-임직원-자금 흐름을 그래프로 모델링, 부정 거래 패턴 탐지</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-blue-400 mt-1">▹</span>
-                                    <span><strong class="text-white">데이터 거버넌스:</strong> 민감 금융/개인정보 가명처리 및 RBAC 기반 접근 제어 정책 시스템화</span>
+                                    <span><strong class="text-white">AI Auto-Mapping:</strong> 이종 ERP DB 스키마를 LLM이 자동
+                                        분석/매핑하는 ETL 파이프라인 (공수 90% 절감)</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-blue-400 mt-1">▹</span>
+                                    <span><strong class="text-white">MCP & A2UI:</strong> 데이터 소스 연결 표준화(MCP) 및 질문에 맞는
+                                        대시보드 실시간 생성(A2UI)</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Apache Spark</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Hadoop</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Python</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Oracle</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Airflow</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">LangGraph</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Vertex
+                                AI(Gemini)</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Neo4j</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">FastAPI</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Docker</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">MCP</span>
                         </div>
                     </div>
                     <div class="lg:w-1/3">
                         <div class="metric-card rounded-xl p-6 border border-green-500/20">
-                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results
+                            </h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-3xl font-bold text-white">System 2</div>
+                                    <div class="text-sm text-slate-400">추론 능력을 갖춘 AI Agent</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-white">90%</div>
+                                    <div class="text-sm text-slate-400">데이터 통합 공수 절감</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 1: Big Data Platform -->
+            <div class="project-card gradient-border rounded-2xl p-8 mb-8 transition-all duration-300">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Data
+                                Engineering</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI
+                                팀장</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">지역화폐 빅데이터 플랫폼 및 데이터 파이프라인 구축</h3>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
+                            <p class="text-slate-300">전국 각 지자체별로 파편화되어 적재되던 지역화폐 결제 및 운영 데이터를 통합 분석할 수 있는 기반이 부재하여, 데이터
+                                기반의 정책 수립에 어려움이 있었습니다.</p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions
+                            </h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-blue-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Enterprise Data Lakehouse:</strong> 다양한 지자체의 이기종
+                                        DB(Oracle, MySQL)로부터 데이터를 수집하여 통합 저장하는 Data Lake 설계</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-blue-400 mt-1">▹</span>
+                                    <span><strong class="text-white">ETL 파이프라인 자동화:</strong> Apache Spark 기반 대용량 배치 처리
+                                        시스템 - 일일 수백만 건 트랜잭션 처리</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-blue-400 mt-1">▹</span>
+                                    <span><strong class="text-white">데이터 거버넌스:</strong> 민감 금융/개인정보 가명처리 및 RBAC 기반 접근 제어
+                                        정책 시스템화</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Apache
+                                Spark</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Hadoop</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Python</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Oracle</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Airflow</span>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="metric-card rounded-xl p-6 border border-green-500/20">
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results
+                            </h4>
                             <div class="space-y-4">
                                 <div>
                                     <div class="text-3xl font-bold text-white">Real-time</div>
@@ -306,45 +448,61 @@
                 <div class="flex flex-col lg:flex-row gap-8">
                     <div class="lg:w-2/3">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">NLP / Chatbot</span>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI 개발 리드 & PM</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">NLP
+                                / Chatbot</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI
+                                개발 리드 & PM</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">지역화폐 AI 챗봇 9개 서비스 구축 (Multi-Tenant Architecture)</h3>
+                        <h3 class="text-2xl font-bold text-white mb-4">지역화폐 AI 챗봇 9개 서비스 구축 (Multi-Tenant Architecture)
+                        </h3>
 
                         <div class="mb-6">
                             <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
-                            <p class="text-slate-300">인천(이음), 경기 등 9개 지자체의 지역화폐 서비스에 대한 고객 문의가 폭증함에 따라, CS 비용 절감과 24/365 응대 체계가 필요했습니다.</p>
+                            <p class="text-slate-300">인천(이음), 경기 등 9개 지자체의 지역화폐 서비스에 대한 고객 문의가 폭증함에 따라, CS 비용 절감과 24/365
+                                응대 체계가 필요했습니다.</p>
                         </div>
 
                         <div class="mb-6">
-                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions
+                            </h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-purple-400 mt-1">▹</span>
-                                    <span><strong class="text-white">OSMU 엔진 개발:</strong> 하나의 AI 코어 엔진으로 9개 지자체별 상이한 정책과 답변을 처리하는 Multi-Tenant 아키텍처 설계</span>
+                                    <span><strong class="text-white">OSMU 엔진 개발:</strong> 하나의 AI 코어 엔진으로 9개 지자체별 상이한 정책과
+                                        답변을 처리하는 Multi-Tenant 아키텍처 설계</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-purple-400 mt-1">▹</span>
-                                    <span><strong class="text-white">Hybrid NLP 모델:</strong> Rule-based + KoBERT/BERT 기반 의도 분류(Intent Classification) 기술로 정확도 극대화</span>
+                                    <span><strong class="text-white">Hybrid NLP 모델:</strong> Rule-based + KoBERT/BERT 기반
+                                        의도 분류(Intent Classification) 기술로 정확도 극대화</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-purple-400 mt-1">▹</span>
-                                    <span><strong class="text-white">MLOps 체계:</strong> 상담 이력 데이터 자동 재학습 파이프라인 구축으로 지속적 모델 성능 개선</span>
+                                    <span><strong class="text-white">MLOps 체계:</strong> 상담 이력 데이터 자동 재학습 파이프라인 구축으로 지속적
+                                        모델 성능 개선</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">Python</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">KoBERT</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">TensorFlow</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">FastAPI</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">Redis</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">Python</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">KoBERT</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">TensorFlow</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">FastAPI</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">Redis</span>
                         </div>
                     </div>
                     <div class="lg:w-1/3">
                         <div class="metric-card rounded-xl p-6 border border-green-500/20">
-                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results
+                            </h4>
                             <div class="space-y-4">
                                 <div>
                                     <div class="text-3xl font-bold text-white">60%+</div>
@@ -365,44 +523,58 @@
                 <div class="flex flex-col lg:flex-row gap-8">
                     <div class="lg:w-2/3">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">RAG / Enterprise</span>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">프로젝트 리드</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">RAG
+                                / Enterprise</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">프로젝트
+                                리드</span>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-4">사내 업무용 AI 챗봇 구축 (MS Teams 연동)</h3>
 
                         <div class="mb-6">
                             <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
-                            <p class="text-slate-300">사내 규정, IT 지원, HR 관련 문의 등 직원들의 반복적인 질문에 대한 자동화된 응대 시스템이 필요했습니다. 특히 MS Teams와의 통합이 필수적이었습니다.</p>
+                            <p class="text-slate-300">사내 규정, IT 지원, HR 관련 문의 등 직원들의 반복적인 질문에 대한 자동화된 응대 시스템이 필요했습니다. 특히
+                                MS Teams와의 통합이 필수적이었습니다.</p>
                         </div>
 
                         <div class="mb-6">
-                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions
+                            </h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-cyan-400 mt-1">▹</span>
-                                    <span><strong class="text-white">MS Teams 연동형 봇:</strong> 별도 앱 설치 없이 Teams 내에서 즉시 사용 가능한 봇 개발</span>
+                                    <span><strong class="text-white">MS Teams 연동형 봇:</strong> 별도 앱 설치 없이 Teams 내에서 즉시 사용
+                                        가능한 봇 개발</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-cyan-400 mt-1">▹</span>
-                                    <span><strong class="text-white">RAG 초기 모델:</strong> 사내 위키(Confluence) 및 규정 문서 벡터화 기반 검색 답변 생성, 환각 현상 최소화</span>
+                                    <span><strong class="text-white">RAG 초기 모델:</strong> 사내 위키(Confluence) 및 규정 문서 벡터화
+                                        기반 검색 답변 생성, 환각 현상 최소화</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-cyan-400 mt-1">▹</span>
-                                    <span><strong class="text-white">보안 프로토콜:</strong> On-Premise + Private Cloud 혼합 구성으로 기업 보안 가이드 준수</span>
+                                    <span><strong class="text-white">보안 프로토콜:</strong> On-Premise + Private Cloud 혼합
+                                        구성으로 기업 보안 가이드 준수</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">MS Bot Framework</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Azure Cognitive</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Python</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Elasticsearch</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">MS Bot
+                                Framework</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Azure
+                                Cognitive</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Python</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Elasticsearch</span>
                         </div>
                     </div>
                     <div class="lg:w-1/3">
                         <div class="metric-card rounded-xl p-6 border border-green-500/20">
-                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results
+                            </h4>
                             <div class="space-y-4">
                                 <div>
                                     <div class="text-3xl font-bold text-white">40%</div>
@@ -423,45 +595,60 @@
                 <div class="flex flex-col lg:flex-row gap-8">
                     <div class="lg:w-2/3">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-400 border border-orange-500/30">RecSys / ML</span>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">Data Scientist 리드</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-400 border border-orange-500/30">RecSys
+                                / ML</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">Data
+                                Scientist 리드</span>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-4">지역화폐 개인화 추천 서비스 개발</h3>
 
                         <div class="mb-6">
                             <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
-                            <p class="text-slate-300">단순 결제 수단을 넘어, 지역 소상공인 매출 증대와 사용자 혜택 강화를 위한 맞춤형 혜택 제공 시스템이 필요했습니다.</p>
+                            <p class="text-slate-300">단순 결제 수단을 넘어, 지역 소상공인 매출 증대와 사용자 혜택 강화를 위한 맞춤형 혜택 제공 시스템이 필요했습니다.
+                            </p>
                         </div>
 
                         <div class="mb-6">
-                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions
+                            </h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-orange-400 mt-1">▹</span>
-                                    <span><strong class="text-white">Hybrid 추천 알고리즘:</strong> Collaborative Filtering + Content-Based Filtering 조합으로 정확도 향상</span>
+                                    <span><strong class="text-white">Hybrid 추천 알고리즘:</strong> Collaborative Filtering +
+                                        Content-Based Filtering 조합으로 정확도 향상</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-orange-400 mt-1">▹</span>
-                                    <span><strong class="text-white">실시간 컨텍스트 반영:</strong> 사용자 위치(Geo-fencing), 날씨, 시간대 결합 "지금 갈만한 곳" 추천</span>
+                                    <span><strong class="text-white">실시간 컨텍스트 반영:</strong> 사용자 위치(Geo-fencing), 날씨, 시간대
+                                        결합 "지금 갈만한 곳" 추천</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-orange-400 mt-1">▹</span>
-                                    <span><strong class="text-white">사용자 프로파일링:</strong> 주 활동 지역, 선호 업종, 소비 시간대 벡터화로 유사 가맹점 추천</span>
+                                    <span><strong class="text-white">사용자 프로파일링:</strong> 주 활동 지역, 선호 업종, 소비 시간대 벡터화로 유사
+                                        가맹점 추천</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Scikit-learn</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Matrix Factorization</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Python</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">PostgreSQL</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Redis</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Scikit-learn</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Matrix
+                                Factorization</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Python</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">PostgreSQL</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Redis</span>
                         </div>
                     </div>
                     <div class="lg:w-1/3">
                         <div class="metric-card rounded-xl p-6 border border-green-500/20">
-                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results
+                            </h4>
                             <div class="space-y-4">
                                 <div>
                                     <div class="text-3xl font-bold text-white">+15%</div>
@@ -482,49 +669,65 @@
                 <div class="flex flex-col lg:flex-row gap-8">
                     <div class="lg:w-2/3">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400 border border-pink-500/30">Computer Vision / OCR</span>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI Tech Lead</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400 border border-pink-500/30">Computer
+                                Vision / OCR</span>
+                            <span
+                                class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI
+                                Tech Lead</span>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-4">가맹점 등록 서류 이미지 분류 및 인식 자동화</h3>
 
                         <div class="mb-6">
                             <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
-                            <p class="text-slate-300">지역화폐 가맹점 등록 신청 시 제출되는 수만 건의 사업자등록증, 통장사본 등의 서류를 담당자가 육안으로 검수하고 입력하는 비효율이 발생했습니다.</p>
+                            <p class="text-slate-300">지역화폐 가맹점 등록 신청 시 제출되는 수만 건의 사업자등록증, 통장사본 등의 서류를 담당자가 육안으로 검수하고
+                                입력하는 비효율이 발생했습니다.</p>
                         </div>
 
                         <div class="mb-6">
-                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions
+                            </h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-pink-400 mt-1">▹</span>
-                                    <span><strong class="text-white">이미지 분류:</strong> CNN 기반 모델(EfficientNet)로 사업자등록증/통장사본/기타 서류 자동 분류</span>
+                                    <span><strong class="text-white">이미지 분류:</strong> CNN 기반 모델(EfficientNet)로
+                                        사업자등록증/통장사본/기타 서류 자동 분류</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-pink-400 mt-1">▹</span>
-                                    <span><strong class="text-white">OCR 추출:</strong> Clova OCR + Tesseract 앙상블로 핵심 필드(사업자번호, 계좌번호) 텍스트 추출</span>
+                                    <span><strong class="text-white">OCR 추출:</strong> Clova OCR + Tesseract 앙상블로 핵심
+                                        필드(사업자번호, 계좌번호) 텍스트 추출</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-pink-400 mt-1">▹</span>
-                                    <span><strong class="text-white">진위 검증:</strong> 국세청 홈택스 API, 금융결제원 API 연동 자동 유효성 검증</span>
+                                    <span><strong class="text-white">진위 검증:</strong> 국세청 홈택스 API, 금융결제원 API 연동 자동 유효성
+                                        검증</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
                                     <span class="text-pink-400 mt-1">▹</span>
-                                    <span><strong class="text-white">HITL 인터페이스:</strong> AI 신뢰도 낮은 건만 담당자 재검토 요청하는 UI/UX 제공</span>
+                                    <span><strong class="text-white">HITL 인터페이스:</strong> AI 신뢰도 낮은 건만 담당자 재검토 요청하는
+                                        UI/UX 제공</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">PyTorch</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">OpenCV</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">OCR API</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">EfficientNet</span>
-                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">Django</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">PyTorch</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">OpenCV</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">OCR
+                                API</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">EfficientNet</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">Django</span>
                         </div>
                     </div>
                     <div class="lg:w-1/3">
                         <div class="metric-card rounded-xl p-6 border border-green-500/20">
-                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results
+                            </h4>
                             <div class="space-y-4">
                                 <div>
                                     <div class="text-3xl font-bold text-white">90%</div>
@@ -552,63 +755,90 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- AI & ML -->
+                <!-- AI/ML & LLM -->
                 <div class="gradient-border rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            <svg class="w-5 h-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-bold text-white">AI & Machine Learning</h3>
+                        <h3 class="text-lg font-bold text-white">AI/ML & LLM</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">PyTorch</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">TensorFlow</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Scikit-learn</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">HuggingFace</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">LangChain</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">OpenAI API</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">LangGraph</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">LangChain</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">GraphRAG(Neo4j)</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">GPT-4o/Gemini</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">PyTorch</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">HuggingFace</span>
                     </div>
                 </div>
 
-                <!-- NLP & LLM -->
+                <!-- Backend & Data Pipeline -->
                 <div class="gradient-border rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            <svg class="w-5 h-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-bold text-white">NLP & LLM</h3>
+                        <h3 class="text-lg font-bold text-white">Backend & Data</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">GPT-4</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">BERT/KoBERT</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">RAG</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Vector DB</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Embedding</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Prompt Engineering</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">FastAPI</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Neo4j</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Elasticsearch</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Apache
+                            Spark</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Oracle/MySQL</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">FastMCP</span>
                     </div>
                 </div>
 
-                <!-- Data Engineering -->
+                <!-- Cloud & Infrastructure -->
                 <div class="gradient-border rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                            <svg class="w-5 h-5 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-bold text-white">Data Engineering</h3>
+                        <h3 class="text-lg font-bold text-white">Cloud & Infra</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Apache Spark</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Airflow</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Elasticsearch</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">PostgreSQL</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Redis</span>
-                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Docker</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">AWS/GCP</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Docker</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">NVIDIA
+                            GPU</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">TF
+                            Serving</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">MSA</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">A2A</span>
                     </div>
                 </div>
             </div>
@@ -619,25 +849,31 @@
     <section id="contact" class="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
         <div class="container mx-auto text-center max-w-2xl relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-mono mb-6">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-mono mb-6">
                 <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                 Open to Opportunities
             </div>
             <h2 class="text-4xl font-bold text-white mb-6">함께 일하고 싶으시다면</h2>
             <p class="text-slate-400 mb-8 text-lg">
-                AI/ML 프로젝트, 시스템 아키텍처 설계, 팀 리딩 등<br/>
+                AI/ML 프로젝트, 시스템 아키텍처 설계, 팀 리딩 등<br />
                 다양한 협업 기회를 환영합니다.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="mailto:gum798@gmail.com" class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-blue-900/30">
-                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <a href="mailto:gum798@gmail.com"
+                    class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-blue-900/30">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     gum798@gmail.com
                 </a>
-                <a href="https://github.com/gum798" target="_blank" rel="noreferrer" class="flex items-center justify-center gap-2 px-8 py-4 bg-slate-800 text-white rounded-full font-bold border border-slate-700 hover:bg-slate-700 transition-colors">
+                <a href="https://github.com/gum798" target="_blank" rel="noreferrer"
+                    class="flex items-center justify-center gap-2 px-8 py-4 bg-slate-800 text-white rounded-full font-bold border border-slate-700 hover:bg-slate-700 transition-colors">
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                     GitHub
                 </a>
