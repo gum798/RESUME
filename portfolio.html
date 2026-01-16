@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -36,6 +36,32 @@
         .perspective-1000 {
             perspective: 1000px;
         }
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        .tech-tag {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+        .metric-card {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+        }
     </style>
 </head>
 
@@ -44,7 +70,7 @@
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 border-b bg-transparent border-transparent py-6">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2 font-bold text-xl tracking-tighter text-white cursor-pointer" onclick="scrollTo('hero')">
+            <div class="flex items-center gap-2 font-bold text-xl tracking-tighter text-white cursor-pointer" onclick="scrollToId('hero')">
                 <svg class="w-6 h-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
@@ -52,9 +78,8 @@
             </div>
             <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
                 <button onclick="scrollToId('about')" class="hover:text-blue-400 transition-colors">About</button>
-                <button onclick="scrollToId('philosophy')" class="hover:text-blue-400 transition-colors">Philosophy</button>
-                <button onclick="scrollToId('project')" class="hover:text-blue-400 transition-colors">Project</button>
-                <button onclick="scrollToId('experience')" class="hover:text-blue-400 transition-colors">Experience</button>
+                <button onclick="scrollToId('projects')" class="hover:text-blue-400 transition-colors">Projects</button>
+                <button onclick="scrollToId('skills')" class="hover:text-blue-400 transition-colors">Skills</button>
                 <button onclick="scrollToId('contact')" class="hover:text-blue-400 transition-colors">Contact</button>
                 <a href="index.html" class="hover:text-blue-400 transition-colors">Resume</a>
                 <a href="portfolio-ko.html" class="hover:text-blue-400 transition-colors">KO</a>
@@ -70,33 +95,32 @@
 
     <!-- Hero Section -->
     <section id="hero" class="py-20 px-6 md:px-12 lg:px-24 min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-        <!-- Background Grid -->
+        <!-- Background Effects -->
         <div class="absolute inset-0 opacity-20" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
         <div class="absolute inset-0" style="background-image: linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px); background-size: 24px 24px;"></div>
-
-        <!-- Glowing Orb -->
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-purple-600/20 rounded-full blur-[80px] pointer-events-none"></div>
 
         <div class="container mx-auto relative z-10 text-center max-w-4xl">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-mono mb-6 animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-mono mb-6 animate-fade-in-up">
                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
-                <span>AI Agent & LLM System Architect</span>
+                <span>AI & Data Science Professional</span>
             </div>
 
             <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-tight">
-                Designing <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">System 2</span> Intelligence for Enterprise.
+                Creating Business Value<br/>with <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400">AI Solutions</span>
             </h1>
 
             <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                I build autonomous AI Agents that think, plan, and execute. <br class="hidden md:block"/>
-                Bridging the gap between 21 years of engineering depth and modern AI innovation.
+                With 21 years of development experience and 6 years of AI/ML expertise,<br class="hidden md:block"/>
+                I design and build enterprise-grade AI systems.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button onclick="scrollToId('project')" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-900/20 w-full sm:w-auto justify-center group">
-                    View AI Architecture
+                <button onclick="scrollToId('projects')" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-900/30 w-full sm:w-auto justify-center group">
+                    View Projects
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -106,22 +130,23 @@
                 </button>
             </div>
 
-            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center border-t border-slate-800 pt-10">
-                <div>
-                    <div class="text-3xl font-bold text-white mb-1">21+</div>
-                    <div class="text-sm text-slate-500">Years Exp</div>
+            <!-- Stats -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="gradient-border rounded-xl p-6">
+                    <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-1">21+</div>
+                    <div class="text-sm text-slate-500">Years Experience</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-1">6+</div>
+                <div class="gradient-border rounded-xl p-6">
+                    <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-1">6+</div>
                     <div class="text-sm text-slate-500">Years AI/ML</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-1">M.S.</div>
-                    <div class="text-sm text-slate-500">AI Data Science</div>
+                <div class="gradient-border rounded-xl p-6">
+                    <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 mb-1">9+</div>
+                    <div class="text-sm text-slate-500">AI Services Launched</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-1">&infin;</div>
-                    <div class="text-sm text-slate-500">Passion</div>
+                <div class="gradient-border rounded-xl p-6">
+                    <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400 mb-1">90%</div>
+                    <div class="text-sm text-slate-500">Automation Rate</div>
                 </div>
             </div>
         </div>
@@ -129,34 +154,30 @@
 
     <!-- About Section -->
     <section id="about" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-900/50">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row gap-16">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/3">
-                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                        <span class="w-8 h-1 bg-blue-500 rounded-full"></span>
-                        About Me
-                    </h2>
-                    <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-4 flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+                    <div class="gradient-border rounded-2xl p-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-full mb-6 flex items-center justify-center text-3xl font-bold text-white shadow-lg mx-auto">
                             SJ
                         </div>
-                        <h3 class="text-xl font-bold text-white">Seo Jeong-hwa</h3>
-                        <p class="text-blue-400 text-sm mb-4">AI Team Lead & Architect</p>
+                        <h3 class="text-2xl font-bold text-white text-center">Seo Jeong-hwa</h3>
+                        <p class="text-blue-400 text-center mb-4">AI Architect & Team Lead</p>
                         <div class="space-y-3 text-sm text-slate-400">
                             <div class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 gum798@gmail.com
                             </div>
                             <div class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                 </svg>
                                 github.com/gum798
                             </div>
                             <div class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
@@ -166,50 +187,39 @@
                     </div>
                 </div>
                 <div class="md:w-2/3">
-                    <h3 class="text-2xl font-bold text-white mb-4">"We build what we envision."</h3>
-                    <p class="text-slate-300 leading-relaxed mb-6">
-                        I am a veteran engineer with over 21 years of experience, specializing in AI/ML for the last 6 years.
-                        I hold a Master's degree in Data Science & AI from Sogang University (4.27/4.5).
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span class="w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
+                        About Me
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed mb-6 text-lg">
+                        <span class="text-blue-400 font-semibold">"We build what we envision."</span>
                     </p>
-                    <p class="text-slate-300 leading-relaxed mb-8">
-                        My career has evolved from traditional system programming (C++, MFC) and Fintech architecture to cutting-edge AI Agent development.
-                        Currently, I focus on building <strong class="text-white">Enterprise AI Agents</strong> using <strong class="text-white">System 2 Thinking</strong> architectures (LangGraph, GraphRAG),
-                        bridging the gap between raw LLM capabilities and complex business logic.
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        From automotive, security, to fintech, I now specialize in <strong class="text-white">AI/ML System Architecture</strong>.
+                        I focus on implementing AI services that create real <strong class="text-white">business value</strong> beyond simple technology application.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        I hold a Master's degree in Data Science & AI from Sogang University (4.27/4.5),
+                        and have successfully led various AI projects including RAG Framework, multimodal systems, and recommendation systems.
                     </p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-bold text-white mb-3 flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-                                </svg>
-                                Core Tech Stack
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-slate-700 text-blue-200 border-slate-600 transition-colors">Python</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-slate-700 text-blue-200 border-slate-600 transition-colors">LangGraph</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-slate-700 text-blue-200 border-slate-600 transition-colors">Gemini</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-slate-700 text-blue-200 border-slate-600 transition-colors">OpenAI</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-slate-700 text-blue-200 border-slate-600 transition-colors">Neo4j</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-slate-700 text-blue-200 border-slate-600 transition-colors">FastAPI</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-slate-700 text-blue-200 border-slate-600 transition-colors">Docker</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-slate-700 text-blue-200 border-slate-600 transition-colors">MCP</span>
-                            </div>
+                    <!-- Core Competencies -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                            <div class="text-2xl mb-2">🤖</div>
+                            <div class="text-sm text-slate-300 font-medium">AI Agent</div>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-3 flex items-center gap-2">
-                                <svg class="w-4 h-4 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                                </svg>
-                                Specialized Areas
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-transparent text-slate-300 border-slate-600 hover:border-blue-400 hover:text-blue-400 transition-colors">RAG Framework</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-transparent text-slate-300 border-slate-600 hover:border-blue-400 hover:text-blue-400 transition-colors">Agentic Workflow</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-transparent text-slate-300 border-slate-600 hover:border-blue-400 hover:text-blue-400 transition-colors">System 2 Architecture</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-transparent text-slate-300 border-slate-600 hover:border-blue-400 hover:text-blue-400 transition-colors">Multi-modal AI</span>
-                                <span class="px-3 py-1 rounded-full text-xs font-medium border bg-transparent text-slate-300 border-slate-600 hover:border-blue-400 hover:text-blue-400 transition-colors">Fintech Security</span>
-                            </div>
+                        <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                            <div class="text-2xl mb-2">📊</div>
+                            <div class="text-sm text-slate-300 font-medium">Data Pipeline</div>
+                        </div>
+                        <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                            <div class="text-2xl mb-2">💬</div>
+                            <div class="text-sm text-slate-300 font-medium">NLP/Chatbot</div>
+                        </div>
+                        <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                            <div class="text-2xl mb-2">👁️</div>
+                            <div class="text-sm text-slate-300 font-medium">Computer Vision</div>
                         </div>
                     </div>
                 </div>
@@ -217,289 +227,387 @@
         </div>
     </section>
 
-    <!-- Philosophy: Vibe Coding -->
-    <section id="philosophy" class="py-20 px-6 md:px-12 lg:px-24 border-y border-slate-800 bg-slate-950">
-        <div class="container mx-auto text-center max-w-4xl">
-            <div class="mb-4 inline-flex items-center gap-2 text-purple-400 font-mono text-sm uppercase tracking-widest">
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                Development Philosophy
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
-                Embracing <span class="text-purple-400 italic">"Vibe Coding"</span> & AI-Native Workflows
-            </h2>
-            <p class="text-slate-400 text-lg mb-10">
-                The era of writing every line of boilerplate is over. As an AI Team Lead, I champion <strong class="text-white">AI-Assisted Development</strong> to accelerate innovation. I treat AI not just as a tool, but as a collaborative junior partner.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-6 text-left">
-                <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-                    <svg class="w-8 h-8 text-blue-400 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                    </svg>
-                    <h3 class="font-bold text-white mb-2">Natural Language to Code</h3>
-                    <p class="text-sm text-slate-400">
-                        Leveraging tools like Cursor and Replit to turn intent into functionality instantly, allowing us to focus on architecture and logic.
-                    </p>
-                </div>
-                <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-                    <svg class="w-8 h-8 text-green-400 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                    </svg>
-                    <h3 class="font-bold text-white mb-2">Auto-Mapping Pipelines</h3>
-                    <p class="text-sm text-slate-400">
-                        Implemented "AI Auto-Mapping Engine" (from my recent project) to automate database schema mapping, reducing ETL workload by 90%.
-                    </p>
-                </div>
-                <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-                    <svg class="w-8 h-8 text-orange-400 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 md:px-12 lg:px-24">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-mono mb-4">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
-                    <h3 class="font-bold text-white mb-2">Agent-First Design</h3>
-                    <p class="text-sm text-slate-400">
-                        Designing systems where AI Agents handle the "doing" while humans handle the "directing" and verification.
-                    </p>
+                    AI & Data Science Projects
                 </div>
+                <h2 class="text-4xl font-bold text-white mb-4">Featured Projects</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">AI projects that solved real business problems</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Featured Project Section -->
-    <section id="project" class="py-20 px-6 md:px-12 lg:px-24">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3">
-                <span class="w-8 h-1 bg-blue-500 rounded-full"></span>
-                Featured Project: Kona AI OS
-            </h2>
+            <!-- Project 1: Big Data Platform -->
+            <div class="project-card gradient-border rounded-2xl p-8 mb-8 transition-all duration-300">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Data Engineering</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI Team Lead</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Regional Currency Big Data Platform & Data Pipeline</h3>
 
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="bg-slate-900 rounded-2xl border border-slate-800 p-8 shadow-2xl relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <svg class="w-64 h-64 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                            </svg>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
+                            <p class="text-slate-300">Payment and operational data from regional currencies across multiple municipalities were fragmented, making data-driven policy decisions difficult.</p>
                         </div>
 
-                        <!-- Architecture Diagram -->
-                        <div id="architecture-diagram" class="w-full max-w-3xl mx-auto my-12 perspective-1000">
-                            <div class="relative space-y-4">
-                                <div class="layer-item relative p-6 rounded-lg border-l-4 transition-all duration-300 cursor-default border-blue-400 bg-blue-900/20 opacity-90" data-layer="1">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-lg text-white">Layer 1: User & Interface</h4>
-                                        <svg class="w-5 h-5 text-slate-400 layer-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                                        </svg>
-                                    </div>
-                                    <p class="text-slate-300 text-sm mt-1">React Dashboard, Chat UI, Intent Recognition</p>
-                                </div>
-                                <div class="layer-item relative p-6 rounded-lg border-l-4 transition-all duration-300 cursor-default border-purple-400 bg-purple-900/20 opacity-90" data-layer="2">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-lg text-white">Layer 2: Orchestration (Brain)</h4>
-                                        <svg class="w-5 h-5 text-slate-400 layer-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                                        </svg>
-                                    </div>
-                                    <p class="text-slate-300 text-sm mt-1">System 2 Reasoning, Recursive Planner, HITL Gate</p>
-                                </div>
-                                <div class="layer-item relative p-6 rounded-lg border-l-4 transition-all duration-300 cursor-default border-green-400 bg-green-900/20 opacity-90" data-layer="3">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-lg text-white">Layer 3: Specialists (Skills)</h4>
-                                        <svg class="w-5 h-5 text-slate-400 layer-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                                        </svg>
-                                    </div>
-                                    <p class="text-slate-300 text-sm mt-1">Data Specialist, Analyst, RAG Engine, MCP</p>
-                                </div>
-                                <div class="layer-item relative p-6 rounded-lg border-l-4 transition-all duration-300 cursor-default border-orange-400 bg-orange-900/20 opacity-90" data-layer="4">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-lg text-white">Layer 4: Memory & Context</h4>
-                                        <svg class="w-5 h-5 text-slate-400 layer-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                                        </svg>
-                                    </div>
-                                    <p class="text-slate-300 text-sm mt-1">Adaptive Memory, State Management (Redis/Postgres)</p>
-                                </div>
-                                <div class="layer-item relative p-6 rounded-lg border-l-4 transition-all duration-300 cursor-default border-slate-400 bg-slate-800/50 opacity-90" data-layer="5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-lg text-white">Layer 5: Unified Data Layer</h4>
-                                        <svg class="w-5 h-5 text-slate-400 layer-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                                        </svg>
-                                    </div>
-                                    <p class="text-slate-300 text-sm mt-1">Neo4j (Graph), Vector DB, ERP Integration</p>
-                                </div>
-
-                                <!-- Connection Lines -->
-                                <div class="absolute top-0 bottom-0 left-[-20px] w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-slate-500 opacity-30 rounded-full"></div>
-                            </div>
-                            <div class="text-center mt-6 text-slate-500 text-xs font-mono">
-                                * Interactive System 2 Architecture Visualization
-                            </div>
-                        </div>
-
-                        <div class="mt-8 grid grid-cols-2 gap-4">
-                            <div class="p-4 bg-slate-800 rounded-lg border border-slate-700">
-                                <div class="text-2xl font-bold text-white">90%</div>
-                                <div class="text-xs text-slate-400 uppercase mt-1">Dev Time Saved</div>
-                            </div>
-                            <div class="p-4 bg-slate-800 rounded-lg border border-slate-700">
-                                <div class="text-2xl font-bold text-white">Sys 2</div>
-                                <div class="text-xs text-slate-400 uppercase mt-1">Reasoning Engine</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="order-1 lg:order-2">
-                    <div class="inline-block px-3 py-1 bg-blue-900/30 border border-blue-800 text-blue-400 rounded-full text-xs font-bold mb-4">
-                        Current Project (2025.10 ~ )
-                    </div>
-                    <h3 class="text-4xl font-bold text-white mb-4 leading-tight">
-                        Next-Gen AI Management & Accounting System
-                    </h3>
-                    <p class="text-xl text-slate-300 mb-6">
-                        An Enterprise AI Agent platform that integrates 5 heterogeneous ERP systems to provide real-time autonomous reasoning for executives.
-                    </p>
-
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="text-lg font-bold text-white mb-2">Key Innovations</h4>
-                            <ul class="space-y-3">
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <ul class="space-y-2">
                                 <li class="flex items-start gap-3 text-slate-300">
-                                    <div class="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2.5"></div>
-                                    <span><strong class="text-white">Recursive Planner (System 2):</strong> Beyond simple chatbots, it plans, executes, and verifies complex accounting tasks autonomously.</span>
+                                    <span class="text-blue-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Enterprise Data Lakehouse:</strong> Designed unified Data Lake collecting from heterogeneous DBs (Oracle, MySQL) across municipalities</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
-                                    <div class="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2.5"></div>
-                                    <span><strong class="text-white">GraphRAG (Neo4j):</strong> Detecting fraud patterns and "related party transactions" by modeling relationships between employees, vendors, and funds.</span>
+                                    <span class="text-blue-400 mt-1">▹</span>
+                                    <span><strong class="text-white">ETL Pipeline Automation:</strong> Apache Spark-based batch processing system handling millions of daily transactions</span>
                                 </li>
                                 <li class="flex items-start gap-3 text-slate-300">
-                                    <div class="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2.5"></div>
-                                    <span><strong class="text-white">A2UI (AI-to-UI):</strong> Generative Dashboard technology where AI creates custom UI widgets on the fly based on user queries.</span>
+                                    <span class="text-blue-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Data Governance:</strong> Implemented RBAC-based access control and pseudonymization for sensitive financial/personal data</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="flex flex-wrap gap-2 pt-4">
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded text-sm font-mono border border-slate-700">LangGraph</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded text-sm font-mono border border-slate-700">Vertex AI</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded text-sm font-mono border border-slate-700">Neo4j</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded text-sm font-mono border border-slate-700">Docker</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded text-sm font-mono border border-slate-700">MCP</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded text-sm font-mono border border-slate-700">FastAPI</span>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Apache Spark</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Hadoop</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Python</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Oracle</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-blue-300">Airflow</span>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="metric-card rounded-xl p-6 border border-green-500/20">
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-3xl font-bold text-white">Real-time</div>
+                                    <div class="text-sm text-slate-400">Analysis time (from days)</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-white">Automated</div>
+                                    <div class="text-sm text-slate-400">Custom policy reports per municipality</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Experience Timeline -->
-    <section id="experience" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-900/30">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3">
-                <span class="w-8 h-1 bg-blue-500 rounded-full"></span>
-                Professional Journey
-            </h2>
-
-            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
-
-                <!-- Job 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-blue-500 bg-slate-900 text-blue-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-slate-800 border border-slate-700 rounded-xl shadow-lg transition-all hover:border-blue-500/50">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-white text-lg">KonaChain (Kona I Subsidiary)</h3>
-                            <span class="text-xs font-mono text-blue-400 bg-blue-900/20 px-2 py-1 rounded">2024.10 - Present</span>
+            <!-- Project 2: AI Chatbot -->
+            <div class="project-card gradient-border rounded-2xl p-8 mb-8 transition-all duration-300">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">NLP / Chatbot</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI Dev Lead & PM</span>
                         </div>
-                        <div class="text-sm font-medium text-slate-400 mb-3">Investment Solutions Team GM / AI Architect</div>
-                        <ul class="text-sm text-slate-300 space-y-1 list-disc list-inside">
-                            <li>Leading the "Kona AI OS" project (Next-gen Enterprise AI).</li>
-                            <li>Designing GraphRAG & Recursive Agent Architectures.</li>
-                            <li>Implementing MCP for scalable AI ecosystems.</li>
-                        </ul>
+                        <h3 class="text-2xl font-bold text-white mb-4">Regional Currency AI Chatbot - 9 Services (Multi-Tenant Architecture)</h3>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
+                            <p class="text-slate-300">Customer inquiries for 9 municipalities' regional currency services surged, requiring CS cost reduction and 24/365 response capability.</p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-purple-400 mt-1">▹</span>
+                                    <span><strong class="text-white">OSMU Engine:</strong> Multi-Tenant architecture with single AI core handling 9 different municipal policies</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-purple-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Hybrid NLP Model:</strong> Rule-based + KoBERT/BERT Intent Classification for maximum accuracy</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-purple-400 mt-1">▹</span>
+                                    <span><strong class="text-white">MLOps Pipeline:</strong> Continuous model improvement through automatic retraining with conversation history</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">Python</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">KoBERT</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">TensorFlow</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">FastAPI</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-purple-300">Redis</span>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="metric-card rounded-xl p-6 border border-green-500/20">
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-3xl font-bold text-white">60%+</div>
+                                    <div class="text-sm text-slate-400">Simple inquiry auto-resolution</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-white">9</div>
+                                    <div class="text-sm text-slate-400">Concurrent services (zero-downtime)</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Job 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-900 text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-slate-800/50 border border-slate-700 rounded-xl shadow-lg transition-all hover:border-slate-600">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-white text-lg">Kona I</h3>
-                            <span class="text-xs font-mono text-slate-500">2011.10 - 2024.10</span>
-                        </div>
-                        <div class="text-sm font-medium text-slate-400 mb-3">AI Team GM / Team Lead</div>
-                        <ul class="text-sm text-slate-300 space-y-1 list-disc list-inside">
-                            <li>Developed Internal AI Agent Platform with MS Teams integration.</li>
-                            <li>Built Hybrid AI Agent (CV + NLP) for document classification (90% time reduction).</li>
-                            <li>Led Regional Currency Big Data Platform (Gov. Project).</li>
-                            <li>Designed MSA-based Fintech/Payment systems.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Education -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-purple-700 bg-slate-900 text-purple-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-slate-800/50 border border-slate-700 rounded-xl shadow-lg transition-all hover:border-purple-500/50">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-white text-lg">Sogang University</h3>
-                            <span class="text-xs font-mono text-slate-500">2021.03 - 2023.08</span>
-                        </div>
-                        <div class="text-sm font-medium text-purple-300 mb-3">M.S. in Data Science & AI</div>
-                        <p class="text-sm text-slate-300">GPA: 4.27 / 4.5. Specialized in deep learning and advanced data analytics.</p>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- Project 3: Enterprise Chatbot -->
+            <div class="project-card gradient-border rounded-2xl p-8 mb-8 transition-all duration-300">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">RAG / Enterprise</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">Project Lead</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Enterprise AI Chatbot (MS Teams Integration)</h3>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
+                            <p class="text-slate-300">Employees' repetitive questions about internal policies, IT support, and HR needed automated responses. MS Teams integration was essential.</p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-cyan-400 mt-1">▹</span>
+                                    <span><strong class="text-white">MS Teams Bot:</strong> Instantly usable within Teams without separate app installation</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-cyan-400 mt-1">▹</span>
+                                    <span><strong class="text-white">RAG Model:</strong> Vector-based search and answer generation from internal wiki (Confluence) and policy documents, minimizing hallucination</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-cyan-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Security Protocol:</strong> Hybrid On-Premise + Private Cloud configuration compliant with enterprise security guidelines</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">MS Bot Framework</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Azure Cognitive</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Python</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-cyan-300">Elasticsearch</span>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="metric-card rounded-xl p-6 border border-green-500/20">
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-3xl font-bold text-white">40%</div>
+                                    <div class="text-sm text-slate-400">Helpdesk ticket reduction</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-white">Automated</div>
+                                    <div class="text-sm text-slate-400">New employee onboarding guide</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Recommendation System -->
+            <div class="project-card gradient-border rounded-2xl p-8 mb-8 transition-all duration-300">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-400 border border-orange-500/30">RecSys / ML</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">Data Scientist Lead</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Personalized Recommendation Service for Regional Currency</h3>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
+                            <p class="text-slate-300">Beyond simple payment, a customized benefit system was needed to boost local merchant sales and enhance user benefits.</p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-orange-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Hybrid Recommendation:</strong> Collaborative Filtering + Content-Based Filtering combination for improved accuracy</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-orange-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Real-time Context:</strong> "Places to visit now" recommendations combining user location (Geo-fencing), weather, and time</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-orange-400 mt-1">▹</span>
+                                    <span><strong class="text-white">User Profiling:</strong> Vector-based similar merchant recommendations using activity area, preferred categories, and consumption time</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Scikit-learn</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Matrix Factorization</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Python</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">PostgreSQL</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-orange-300">Redis</span>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="metric-card rounded-xl p-6 border border-green-500/20">
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-3xl font-bold text-white">+15%</div>
+                                    <div class="text-sm text-slate-400">Recommended merchant visit CTR</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-white">Validated</div>
+                                    <div class="text-sm text-slate-400">SMB marketing platform value</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Document AI -->
+            <div class="project-card gradient-border rounded-2xl p-8 mb-8 transition-all duration-300">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400 border border-pink-500/30">Computer Vision / OCR</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30">AI Tech Lead</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Merchant Registration Document Classification & OCR Automation</h3>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Problem</h4>
+                            <p class="text-slate-300">Tens of thousands of business registration certificates and bank statements submitted for merchant registration were being manually reviewed and entered, causing inefficiency.</p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Solutions</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-pink-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Image Classification:</strong> CNN-based model (EfficientNet) for automatic document type classification</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-pink-400 mt-1">▹</span>
+                                    <span><strong class="text-white">OCR Extraction:</strong> Clova OCR + Tesseract ensemble for key field (business ID, account number) text extraction</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-pink-400 mt-1">▹</span>
+                                    <span><strong class="text-white">Verification:</strong> Automatic validity check through National Tax Service and Financial Settlement API integration</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <span class="text-pink-400 mt-1">▹</span>
+                                    <span><strong class="text-white">HITL Interface:</strong> UI/UX for human review of only low-confidence AI predictions</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">PyTorch</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">OpenCV</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">OCR API</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">EfficientNet</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-xs font-medium text-pink-300">Django</span>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="metric-card rounded-xl p-6 border border-green-500/20">
+                            <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">Key Results</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-3xl font-bold text-white">90%</div>
+                                    <div class="text-sm text-slate-400">Review time reduction (5min→30sec)</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-white">Zero</div>
+                                    <div class="text-sm text-slate-400">Human Error eliminated</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Certifications -->
-    <section id="certs" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-950">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold text-white mb-8">Certifications & Skills</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-slate-900 p-4 border border-slate-800 rounded-lg flex items-center gap-3">
-                    <svg class="w-8 h-8 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                    </svg>
-                    <div>
-                        <div class="font-bold text-white text-sm">Info. Processing Engineer</div>
-                        <div class="text-xs text-slate-500">2003.12</div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-900/50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Tech Stack</h2>
+                <p class="text-slate-400">Core technologies used in AI/ML projects</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- AI & ML -->
+                <div class="gradient-border rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">AI & Machine Learning</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">PyTorch</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">TensorFlow</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Scikit-learn</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">HuggingFace</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">LangChain</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">OpenAI API</span>
                     </div>
                 </div>
-                <div class="bg-slate-900 p-4 border border-slate-800 rounded-lg flex flex-col justify-center">
-                    <div class="text-xs text-slate-500 mb-1">Python / AI</div>
-                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                        <div class="bg-blue-500 h-full" style="width: 95%;"></div>
+
+                <!-- NLP & LLM -->
+                <div class="gradient-border rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">NLP & LLM</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">GPT-4</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">BERT/KoBERT</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">RAG</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Vector DB</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Embedding</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Prompt Engineering</span>
                     </div>
                 </div>
-                <div class="bg-slate-900 p-4 border border-slate-800 rounded-lg flex flex-col justify-center">
-                    <div class="text-xs text-slate-500 mb-1">Java / Backend</div>
-                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                        <div class="bg-green-500 h-full" style="width: 90%;"></div>
+
+                <!-- Data Engineering -->
+                <div class="gradient-border rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Data Engineering</h3>
                     </div>
-                </div>
-                <div class="bg-slate-900 p-4 border border-slate-800 rounded-lg flex flex-col justify-center">
-                    <div class="text-xs text-slate-500 mb-1">C++ / MFC</div>
-                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                        <div class="bg-purple-500 h-full" style="width: 85%;"></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Apache Spark</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Airflow</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Elasticsearch</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">PostgreSQL</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Redis</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm border border-slate-700">Docker</span>
                     </div>
                 </div>
             </div>
@@ -507,14 +615,20 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-t from-blue-900/20 to-slate-950">
-        <div class="container mx-auto text-center max-w-2xl">
-            <h2 class="text-4xl font-bold text-white mb-6">Ready to Innovate?</h2>
+    <section id="contact" class="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+        <div class="container mx-auto text-center max-w-2xl relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-mono mb-6">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                Open to Opportunities
+            </div>
+            <h2 class="text-4xl font-bold text-white mb-6">Let's Work Together</h2>
             <p class="text-slate-400 mb-8 text-lg">
-                I am looking for opportunities where I can apply my "System 2 Thinking" architecture to solve complex enterprise problems. Let's build the future of AI Agents together.
+                I welcome various collaboration opportunities including<br/>
+                AI/ML projects, system architecture design, and team leadership.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="mailto:gum798@gmail.com" class="flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-blue-50 transition-colors shadow-lg shadow-white/10">
+                <a href="mailto:gum798@gmail.com" class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-blue-900/30">
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -524,11 +638,11 @@
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
-                    github.com/gum798
+                    GitHub
                 </a>
             </div>
             <div class="mt-12 text-slate-600 text-sm">
-                &copy; 2026 Seo Jeong-hwa. Built with Vibe Coding (React + Tailwind + AI).
+                &copy; 2026 Seo Jeong-hwa. Built with AI-Assisted Development
             </div>
         </div>
     </section>
@@ -551,32 +665,6 @@
             const el = document.getElementById(id);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
-
-        // Architecture diagram hover effect
-        const layers = document.querySelectorAll('.layer-item');
-        layers.forEach(layer => {
-            layer.addEventListener('mouseenter', () => {
-                layers.forEach(l => {
-                    if (l === layer) {
-                        l.classList.add('scale-105', 'shadow-xl', 'z-10', 'translate-x-4');
-                        l.classList.remove('opacity-90');
-                        l.querySelector('.layer-icon').classList.add('text-white', 'animate-pulse');
-                        l.querySelector('.layer-icon').classList.remove('text-slate-400');
-                    } else {
-                        l.classList.add('opacity-50', 'blur-[1px]');
-                        l.classList.remove('opacity-90');
-                    }
-                });
-            });
-            layer.addEventListener('mouseleave', () => {
-                layers.forEach(l => {
-                    l.classList.remove('scale-105', 'shadow-xl', 'z-10', 'translate-x-4', 'opacity-50', 'blur-[1px]');
-                    l.classList.add('opacity-90');
-                    l.querySelector('.layer-icon').classList.remove('text-white', 'animate-pulse');
-                    l.querySelector('.layer-icon').classList.add('text-slate-400');
-                });
-            });
-        });
     </script>
 </body>
 
